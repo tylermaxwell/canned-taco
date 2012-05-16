@@ -9,6 +9,10 @@ int main(void) {
 
 	for(i=0; i<MAX_CHILD_FORKS; i++) {
 		fork();
-		printf("Launched %d\r\n",i);
+		//Bug 1 - Root cause:  printf() is slow and was causing forkyness 
+		// to not work good
+		// :(
+
+		//printf("Launched %d\r\n",i);
 	}
 }
